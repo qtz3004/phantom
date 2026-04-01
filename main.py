@@ -8,20 +8,13 @@ load_dotenv()
 if os.getenv("SSL_CERT_FILE"):
     os.environ.setdefault("REQUESTS_CA_BUNDLE", os.environ["SSL_CERT_FILE"])
 
-from deepagents import create_deep_agent
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 
 def main():
-    agent = create_deep_agent(
-        model="google_genai:gemini-2.5-flash",
-        system_prompt="You are a helpful assistant.",
-    )
-
-    result = agent.invoke(
-        {"messages": [{"role": "user", "content": "Hello! Tell me about yourself."}]}
-    )
-
-    print(result["messages"][-1].content)
+    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
+    response = llm.invoke("안녕")
+    print(response.content)
 
 
 if __name__ == "__main__":

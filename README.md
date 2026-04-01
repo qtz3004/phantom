@@ -70,14 +70,11 @@ deepagents version: 0.4.12
 다음 단계: .env 파일에 API 키를 설정한 후 'uv run main.py'를 실행하세요.
 ```
 
-### main.py (DeepAgent 실행 - API 키 필요)
+### main.py (Google API 키 확인 - API 키 필요)
 
 ```
 $ uv run main.py
-[{'type': 'text', 'text': 'Hello! I am a large language model, trained by Google.
-I can help you with a wide range of tasks, from answering your questions and
-providing information to assisting with creative writing and coding.
-How can I help you today?'}]
+안녕하세요! 무엇을 도와드릴까요? 😊
 ```
 
 > 위와 유사한 텍스트 응답이 출력되면 성공입니다. 응답 내용은 매번 달라질 수 있습니다.

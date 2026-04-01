@@ -8,7 +8,7 @@ load_dotenv()
 
 def main():
     agent = create_deep_agent(
-        model="anthropic:claude-sonnet-4-6",
+        model="google_genai:gemini-2.5-flash",
         system_prompt="You are a helpful assistant.",
     )
 

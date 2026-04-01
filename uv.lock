@@ -782,6 +782,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "deepagents" },
+    { name = "langchain-google-genai" },
     { name = "python-dotenv" },
     { name = "tavily-python" },
 ]
@@ -789,6 +790,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "deepagents" },
+    { name = "langchain-google-genai" },
     { name = "python-dotenv" },
     { name = "tavily-python" },
 ]

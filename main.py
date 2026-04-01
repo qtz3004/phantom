@@ -1,9 +1,14 @@
 import os
 
 from dotenv import load_dotenv
-from deepagents import create_deep_agent
 
 load_dotenv()
+
+# 회사 프록시 SSL 인증서 설정
+if os.getenv("SSL_CERT_FILE"):
+    os.environ.setdefault("REQUESTS_CA_BUNDLE", os.environ["SSL_CERT_FILE"])
+
+from deepagents import create_deep_agent
 
 
 def main():

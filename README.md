@@ -42,12 +42,38 @@ uv sync
 cp .env.example .env
 # Windows: copy .env.example .env
 
-# 4. .env 파일에 API 키 입력
+# 4. .env 파일에 API 키와 PEM 인증서 경로 입력
 # GOOGLE_API_KEY=AIza...
 # TAVILY_API_KEY=tvly-...
+# SSL_CERT_FILE=/path/to/your-proxy.pem
 
-# 5. 실행
+# 5. 설치 확인
+uv run hello.py
+
+# 6. 실행
 uv run main.py
 ```
 
 > `uv`가 `.python-version` 파일을 보고 Python 3.12를 자동 설치합니다. 별도로 Python을 설치할 필요가 없습니다.
+
+## 실행 결과
+
+### hello.py (설치 확인)
+
+```
+$ uv run hello.py
+deepagents 설치 확인 OK!
+deepagents version: 0.4.12
+
+다음 단계: .env 파일에 API 키를 설정한 후 'uv run main.py'를 실행하세요.
+```
+
+### main.py (DeepAgent 실행)
+
+```
+$ uv run main.py
+[{'type': 'text', 'text': 'Hello! I am a large language model, trained by Google.
+I can help you with a wide range of tasks, from answering your questions and
+providing information to assisting with creative writing and coding.
+How can I help you today?'}]
+```

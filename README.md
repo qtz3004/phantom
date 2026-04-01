@@ -43,7 +43,8 @@ uv run hello.py
 # 6. Google API 확인
 uv run main.py
 
-# 7. Claude Code 실행
+# 7. 프로젝트 디렉토리에서 Claude Code 실행
+cd phantom
 claude
 ```
 
@@ -75,6 +76,7 @@ $ uv run main.py
 ### 3. Claude Code 실행
 
 ```
+$ cd phantom
 $ claude
 
  ▐▛███▜▌   Claude Code v2.1.89

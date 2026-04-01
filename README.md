@@ -4,16 +4,6 @@ DeepAgent + Claude Code를 활용한 에이전트 구축 방법을 함께 살펴
 
 ## 사전 준비
 
-### Git 설치
-
-**Windows (Git이 없는 경우):**
-```powershell
-winget install Git.Git
-```
-또는 https://git-scm.com/downloads/win 에서 다운로드
-
-**Mac:** Xcode Command Line Tools에 포함 (터미널에서 `git --version` 입력하면 자동 설치 안내)
-
 ### uv 설치
 
 **Mac / Linux:**
@@ -27,14 +17,6 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 ```
 
 > 설치 후 터미널을 재시작하세요.
-
-### Claude Code 설치
-
-```bash
-npm install -g @anthropic-ai/claude-code
-```
-
-> Node.js가 없는 경우: https://nodejs.org 에서 LTS 버전을 설치하세요.
 
 ## 시작하기
 

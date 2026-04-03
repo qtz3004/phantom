@@ -11,4 +11,6 @@ dependencies = [
     "copilotkit",
     "fastapi",
     "uvicorn[standard]",
+    "httpx",
+    "pyyaml",
 ]

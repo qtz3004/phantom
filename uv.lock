@@ -926,8 +926,10 @@ dependencies = [
     { name = "copilotkit" },
     { name = "deepagents" },
     { name = "fastapi" },
+    { name = "httpx" },
     { name = "langchain-google-genai" },
     { name = "python-dotenv" },
+    { name = "pyyaml" },
     { name = "tavily-python" },
     { name = "uvicorn", extra = ["standard"] },
 ]
@@ -937,8 +939,10 @@ requires-dist = [
     { name = "copilotkit" },
     { name = "deepagents" },
     { name = "fastapi" },
+    { name = "httpx" },
     { name = "langchain-google-genai" },
     { name = "python-dotenv" },
+    { name = "pyyaml" },
     { name = "tavily-python" },
     { name = "uvicorn", extras = ["standard"] },
 ]

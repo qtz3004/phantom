@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import StreamingResponse
 
 from agent import agent
+from teams.router import teams_router
 
 logger = logging.getLogger("golden-cabbage")
 
@@ -22,6 +23,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(teams_router, prefix="/api/teams")
 
 agui_agent = LangGraphAGUIAgent(
     name="golden-cabbage",

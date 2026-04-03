@@ -1,4 +1,5 @@
 import logging
+import os
 import time
 
 import uvicorn
@@ -16,9 +17,11 @@ logger = logging.getLogger("golden-cabbage")
 
 app = FastAPI(title="황금배추 에이전트")
 
+cors_origin = os.environ.get("CORS_ORIGIN", "http://localhost:3000")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[cors_origin],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

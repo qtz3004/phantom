@@ -1,0 +1,13 @@
+__pycache__
+.venv
+.env
+.git
+.idea
+.claude
+node_modules
+frontend
+skills
+docs
+design
+notebooks
+*.md

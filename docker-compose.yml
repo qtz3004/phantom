@@ -7,6 +7,9 @@ services:
       - .env
     environment:
       - CORS_ORIGIN=http://localhost:3000
+      - SSL_CERT_FILE=${SSL_CERT_FILE:+/etc/ssl/custom/proxy.pem}
+    volumes:
+      - ${SSL_CERT_FILE:-/dev/null}:/etc/ssl/custom/proxy.pem:ro
     restart: unless-stopped
 
   frontend:

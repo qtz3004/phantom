@@ -10,6 +10,6 @@ RUN uv sync --frozen --no-dev
 COPY agent.py server.py ./
 COPY teams/ ./teams/
 
-EXPOSE 8123
+EXPOSE 8000
 
 CMD ["uv", "run", "python", "server.py"]

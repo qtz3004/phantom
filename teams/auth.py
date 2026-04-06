@@ -1,23 +1,25 @@
 import logging
+import os
 import secrets
 import time
-from pathlib import Path
 from urllib.parse import urlencode
 
 import httpx
-import yaml
 
 logger = logging.getLogger("teams-hook")
 
 GRAPH_SCOPES = "Chat.Read User.Read offline_access"
-AUTH_BASE = "https://login.microsoftonline.com/common/oauth2/v2.0"
-
-CREDENTIALS_PATH = Path(__file__).parent / "credentials.yaml"
 
 
 def load_credentials() -> dict:
-    with open(CREDENTIALS_PATH) as f:
-        return yaml.safe_load(f)["teams"]
+    tenant_id = os.environ.get("TEAMS_TENANT_ID", "common")
+    return {
+        "client_id": os.environ["TEAMS_CLIENT_ID"],
+        "client_secret": os.environ["TEAMS_CLIENT_SECRET"],
+        "tenant_id": tenant_id,
+        "redirect_uri": os.environ.get("TEAMS_REDIRECT_URI", "http://localhost:8123/api/teams/auth/callback"),
+        "auth_base": f"https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0",
+    }
 
 
 class TokenStore:
@@ -58,7 +60,7 @@ def get_auth_url() -> str:
         "scope": GRAPH_SCOPES,
         "state": token_store.state,
     }
-    return f"{AUTH_BASE}/authorize?{urlencode(params)}"
+    return f"{creds['auth_base']}/authorize?{urlencode(params)}"
 
 
 async def exchange_code(code: str) -> dict:
@@ -72,7 +74,7 @@ async def exchange_code(code: str) -> dict:
         "scope": GRAPH_SCOPES,
     }
     async with httpx.AsyncClient() as client:
-        resp = await client.post(f"{AUTH_BASE}/token", data=data)
+        resp = await client.post(f"{creds['auth_base']}/token", data=data)
         resp.raise_for_status()
         token_data = resp.json()
         token_store.update(token_data)
@@ -89,7 +91,7 @@ async def refresh_access_token() -> str:
         "scope": GRAPH_SCOPES,
     }
     async with httpx.AsyncClient() as client:
-        resp = await client.post(f"{AUTH_BASE}/token", data=data)
+        resp = await client.post(f"{creds['auth_base']}/token", data=data)
         resp.raise_for_status()
         token_data = resp.json()
         token_store.update(token_data)

@@ -42,7 +42,7 @@ LLM 최적화된 Markdown 파일. 아래 규격을 따른다.
 ## 인증 구조
 
 ```
-skills/wiki-crawler/
+.claude/skills/wiki-crawler/
 ├── SKILL.md
 ├── credentials.yaml      # .gitignore 대상
 └── credentials.example.yaml

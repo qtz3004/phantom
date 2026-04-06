@@ -38,11 +38,11 @@ allowed-tools: http_request, read_file, write_file
 
 ## 출력 경로
 
-`skills/wiki-crawler/output/` 디렉토리에 저장한다.
+`.claude/skills/wiki-crawler/output/` 디렉토리에 저장한다.
 
 ## 인증
 
-`skills/wiki-crawler/credentials.yaml` 파일을 읽는다. 이 파일은 `.gitignore` 대상이다.
+`.claude/skills/wiki-crawler/credentials.yaml` 파일을 읽는다. 이 파일은 `.gitignore` 대상이다.
 
 ```yaml
 wiki:

@@ -58,7 +58,14 @@ async def auth_callback(
                        "환경변수 설정 후 서버를 재시작하세요.",
         }
 
-    sub = await subscription_manager.create(notification_url)
+    try:
+        sub = await subscription_manager.create(notification_url)
+    except Exception as e:
+        logger.error(f"[구독 생성 실패] {e}")
+        return {
+            "status": "authenticated",
+            "warning": f"인증 성공, 구독 생성 실패: {e}",
+        }
 
     # 갱신 루프 시작
     if _renew_task is None or _renew_task.done():

@@ -7,18 +7,43 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-if os.getenv("SSL_CERT_FILE"):
-    os.environ.setdefault("REQUESTS_CA_BUNDLE", os.environ["SSL_CERT_FILE"])
+if os.getenv("EXTRA_CA_CERT"):
+    import certifi
+
+    _original_bundle = certifi.where()
+    _extra_cert = os.environ["EXTRA_CA_CERT"]
+    _combined_path = "/tmp/combined-ca-bundle.pem"
+
+    with open(_original_bundle, "r") as f:
+        _content = f.read()
+    with open(_extra_cert, "r") as f:
+        _content += "\n" + f.read()
+    with open(_combined_path, "w") as f:
+        f.write(_content)
+
+    certifi.where = lambda: _combined_path
+    os.environ["SSL_CERT_FILE"] = _combined_path
+    os.environ["REQUESTS_CA_BUNDLE"] = _combined_path
 
 from deepagents import create_deep_agent
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.checkpoint.memory import MemorySaver
 
+from prompts import load_prompt
+from subagents import oil_subsidy_subagent
+
+_log_handlers = [logging.StreamHandler()]
+_log_dir = os.getenv("LOG_DIR")
+if _log_dir:
+    os.makedirs(_log_dir, exist_ok=True)
+    _log_handlers.append(logging.FileHandler(f"{_log_dir}/agent.log", encoding="utf-8"))
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
+    handlers=_log_handlers,
 )
 logger = logging.getLogger("golden-cabbage")
 
@@ -131,22 +156,16 @@ def get_current_time() -> str:
     return datetime.now().strftime("%Y년 %m월 %d일 %H시 %M분 %S초")
 
 
-SYSTEM_PROMPT = """당신은 황금배추라는 이름의 개인 비서 에이전트입니다.
-사용자가 무엇을 물어보든 반드시 다음 두 가지를 포함하여 응답하세요:
-
-1. "안녕하세요!" 인사
-2. get_current_time 도구를 호출하여 현재 시간을 알려주기
-
-예시 응답: "안녕하세요! 현재 시간은 2026년 04월 03일 14시 30분 00초입니다."
-
-어떤 질문이든 이 형식으로만 응답하세요."""
-
 llm = LoggingChatModel(model="gemini-3.1-flash-lite-preview")
 
+orchestrator = load_prompt("orchestrator")
+
 agent = create_deep_agent(
-    name="golden-cabbage",
+    name=orchestrator["name"],
     model=llm,
-    system_prompt=SYSTEM_PROMPT,
+    system_prompt=orchestrator["system_prompt"],
     tools=[get_current_time],
+    backend=None,
     checkpointer=MemorySaver(),
+    subagents=[oil_subsidy_subagent],
 )

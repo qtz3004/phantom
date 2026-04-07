@@ -30,12 +30,14 @@ class SubscriptionManager:
             "clientState": self.client_state,
         }
 
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(timeout=30.0) as client:
             resp = await client.post(
                 f"{GRAPH_API}/subscriptions",
                 json=payload,
                 headers={"Authorization": f"Bearer {token}"},
             )
+            if resp.status_code >= 400:
+                logger.error(f"[구독 생성 실패] {resp.status_code}: {resp.text}")
             resp.raise_for_status()
             data = resp.json()
             self.subscription_id = data["id"]

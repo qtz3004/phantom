@@ -10,4 +10,6 @@ skills
 docs
 design
 notebooks
-*.md
+/*.md
+!prompts/**/*.md
+!subagents/**/*.md

@@ -9,6 +9,8 @@ RUN uv sync --frozen --no-dev
 
 COPY agent.py server.py ./
 COPY teams/ ./teams/
+COPY prompts/ ./prompts/
+COPY subagents/ ./subagents/
 
 EXPOSE 8000
 

@@ -3,13 +3,13 @@ import {
   ExperimentalEmptyAdapter,
   copilotRuntimeNextJSAppRouterEndpoint,
 } from "@copilotkit/runtime";
-import { LangGraphHttpAgent } from "@copilotkit/runtime/langgraph";
+import { HttpAgent } from "@ag-ui/client";
 import { NextRequest } from "next/server";
 
 const runtime = new CopilotRuntime({
   agents: {
-    "golden-cabbage": new LangGraphHttpAgent({
-      url: process.env.AGENT_URL || "http://localhost:8123",
+    "golden-cabbage": new HttpAgent({
+      url: process.env.AGENT_URL || "http://localhost:8000/",
     }),
   },
 });

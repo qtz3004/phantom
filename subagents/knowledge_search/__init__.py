@@ -1,4 +1,4 @@
-"""고유가 피해 지원금 안내 서브에이전트"""
+"""지식 검색 서브에이전트"""
 
 import logging
 
@@ -8,7 +8,7 @@ from langchain_core.messages import AIMessage
 from prompts import load_prompt
 from .middleware import search_docs, grab_section
 
-logger = logging.getLogger("oil-subsidy-middleware")
+logger = logging.getLogger("knowledge-search-middleware")
 
 
 def _extract_text(content) -> str:
@@ -58,13 +58,27 @@ async def toc_middleware(request, handler):
     logger.info(f"[After Hook] content: {content[:200]}")
 
     if "SELECT:" in content:
-        select_lines = [
-            line.replace("SELECT:", "").strip()
-            for line in content.splitlines()
-            if line.strip().startswith("SELECT:")
-        ]
-        if select_lines:
-            select_expression = "\n".join(select_lines)
+        # SELECT: 블록은 다음 SELECT: 또는 빈 줄까지 이어지는 여러 줄일 수 있다.
+        select_entries: list[str] = []
+        current: list[str] = []
+        for line in content.splitlines():
+            stripped = line.strip()
+            if stripped.startswith("SELECT:"):
+                if current:
+                    select_entries.append(" ".join(current))
+                    current = []
+                current.append(stripped.replace("SELECT:", "", 1).strip())
+            elif current:
+                if not stripped:
+                    select_entries.append(" ".join(current))
+                    current = []
+                else:
+                    current.append(stripped)
+        if current:
+            select_entries.append(" ".join(current))
+
+        if select_entries:
+            select_expression = "\n".join(select_entries)
             grabbed = grab_section(select_expression)
             logger.info(f"[After Hook] grab 완료: {grabbed[:200]}")
             grabbed_msg = AIMessage(content=grabbed)
@@ -76,9 +90,9 @@ async def toc_middleware(request, handler):
     return result
 
 
-_prompt = load_prompt("oil_subsidy_guide")
+_prompt = load_prompt("knowledge_search_guide")
 
-oil_subsidy_subagent = {
+knowledge_search_subagent = {
     "name": _prompt["name"],
     "description": _prompt["description"],
     "system_prompt": _prompt["system_prompt"],

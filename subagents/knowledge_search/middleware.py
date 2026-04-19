@@ -1,4 +1,4 @@
-"""고유가 피해 지원금 서브에이전트 도구 — TOC 검색 및 본문 Grab"""
+"""지식 검색 서브에이전트 도구 — TOC 검색 및 본문 Grab"""
 
 import re
 from pathlib import Path
@@ -86,8 +86,8 @@ def grab_section(select_expression: str) -> str:
     Args:
         select_expression: "422767515.md | 라인: 6-17 | 참조: 3-4" 형식의 문자열
     """
-    pattern = r"(\S+\.md)\s*\|\s*라인:\s*(\d+)-(\d+)\s*\|\s*참조:\s*(\d+)-(\d+)"
-    matches = list(re.finditer(pattern, select_expression))
+    pattern = r"(\S+\.md)\s*\|\s*라인:\s*(\d+)\s*-\s*(\d+)\s*\|\s*참조:\s*(\d+)\s*-\s*(\d+)"
+    matches = list(re.finditer(pattern, select_expression, re.DOTALL))
 
     if not matches:
         return "올바른 형식이 아닙니다. '파일명 | 라인: start-end | 참조: ref_start-ref_end' 형식으로 입력하세요."

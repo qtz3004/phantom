@@ -1,6 +1,8 @@
 import logging
 import os
 import time
+from logging.handlers import RotatingFileHandler
+from pathlib import Path
 
 import uvicorn
 from ag_ui.core import RunAgentInput
@@ -10,8 +12,45 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import StreamingResponse
 
+# Gemini 응답의 ToolMessage.name이 None으로 들어올 때 ag_ui_langgraph의
+# ToolCallStartEvent pydantic 검증이 실패하는 문제를 우회한다.
+from langchain_core.messages import ToolMessage as _ToolMessage
+
+_orig_tool_message_init = _ToolMessage.__init__
+
+
+def _patched_tool_message_init(self, *args, **kwargs):
+    _orig_tool_message_init(self, *args, **kwargs)
+    if getattr(self, "name", None) is None:
+        self.name = "tool"
+
+
+_ToolMessage.__init__ = _patched_tool_message_init
+
 from agent import agent
-from teams.router import teams_router
+
+LOG_DIR = Path(__file__).parent / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+LOG_FILE = LOG_DIR / "backend.log"
+
+_log_format = "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+_file_handler = RotatingFileHandler(
+    LOG_FILE, maxBytes=10 * 1024 * 1024, backupCount=5, encoding="utf-8"
+)
+_file_handler.setFormatter(logging.Formatter(_log_format))
+_stream_handler = logging.StreamHandler()
+_stream_handler.setFormatter(logging.Formatter(_log_format))
+
+logging.basicConfig(
+    level=os.environ.get("LOG_LEVEL", "INFO"),
+    handlers=[_file_handler, _stream_handler],
+    force=True,
+)
+
+for _uvicorn_logger in ("uvicorn", "uvicorn.error", "uvicorn.access"):
+    _ul = logging.getLogger(_uvicorn_logger)
+    _ul.handlers = [_file_handler, _stream_handler]
+    _ul.propagate = False
 
 logger = logging.getLogger("golden-cabbage")
 
@@ -26,8 +65,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-app.include_router(teams_router, prefix="/api/teams")
 
 agui_agent = LangGraphAGUIAgent(
     name="golden-cabbage",
@@ -80,4 +117,4 @@ def health():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000, log_config=None)

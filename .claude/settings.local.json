@@ -1,0 +1,37 @@
+{
+  "cleanupPeriodDays": 99,
+  "env": {
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_TELEMETRY": "1",
+    "CLAUDE_CODE_HIDE_ACCOUNT_INFO": "1",
+    "BASH_DEFAULT_TIMEOUT_MS": "300000",
+    "JIRA_BASE_URL": "https://konaway.konai.com",
+    "JIRA_USER": "hsookim",
+    "JIRA_PASSWORD": "Kona!202602"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "defaultMode": "plan",
+    "disableBypassPermissionsMode": "disable",
+    "allow": [
+      "Bash(kill 10075 10073)"
+    ]
+  },
+  "model": "opus",
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "apidog"
+  ],
+  "statusLine": {
+    "type": "command",
+    "command": "/Users/hsookim/Workspace/06.src/chatbot-server_deepagents/.claude/statusline.local.sh"
+  },
+  "language": "korean",
+  "effortLevel": "medium",
+  "showTurnDuration": true
+}

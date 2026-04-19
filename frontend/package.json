@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "mkdir -p ../logs && next dev 2>&1 | tee -a ../logs/frontend.log",
     "build": "next build",
-    "start": "next start",
+    "start": "mkdir -p ../logs && next start 2>&1 | tee -a ../logs/frontend.log",
     "lint": "eslint"
   },
   "dependencies": {

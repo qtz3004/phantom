@@ -86,17 +86,19 @@ def grab_section(select_expression: str) -> str:
     Args:
         select_expression: "sample.md | 라인: 6-17 | 참조: 3-4" 형식의 문자열
     """
-    pattern = r"(\S+\.md)\s*\|\s*라인:\s*(\d+)\s*-\s*(\d+)\s*\|\s*참조:\s*(\d+)\s*-\s*(\d+)"
+    pattern = r"(\S+\.md)\s*\|\s*라인:\s*(\d+)\s*(?:-\s*(\d+))?\s*\|\s*참조:\s*(\d+)\s*(?:-\s*(\d+))?"
     matches = list(re.finditer(pattern, select_expression, re.DOTALL))
 
     if not matches:
-        return "올바른 형식이 아닙니다. '파일명 | 라인: start-end | 참조: ref_start-ref_end' 형식으로 입력하세요."
+        return "올바른 형식이 아닙니다. '파일명 | 라인: start[-end] | 참조: ref_start[-ref_end]' 형식으로 입력하세요."
 
     parts = []
     for match in matches:
         filename = match.group(1)
-        line_start, line_end = int(match.group(2)), int(match.group(3))
-        ref_start, ref_end = int(match.group(4)), int(match.group(5))
+        line_start = int(match.group(2))
+        line_end = int(match.group(3)) if match.group(3) else line_start
+        ref_start = int(match.group(4))
+        ref_end = int(match.group(5)) if match.group(5) else ref_start
 
         file_path = _find_file(filename)
         if not file_path:

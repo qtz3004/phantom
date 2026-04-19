@@ -17,12 +17,14 @@ Markdown 파일에서 `#`, `##`, `###` 헤더 라인을 추출하여 knowledge_s
 
 **입력이 없으면 즉시 작업을 중단하고 사용자에게 목차화할 Markdown 파일 경로를 입력해달라고 요청한다.** 임의의 파일로 진행하지 않는다.
 
-## 출력 경로 (고정)
+## 출력 경로 (프로젝트 루트 기준 상대 경로)
 
-- 원문 복사본: `/Users/hsookim/Workspace/09.demo/phantom/subagents/knowledge_search/docs/knowledge.md`
-- 목차: `/Users/hsookim/Workspace/09.demo/phantom/subagents/knowledge_search/docs/tocs.md`
+현재 작업 중인 프로젝트 루트를 기준으로 한 **상대 경로**에 저장한다. (절대 경로 하드코딩 금지)
 
-두 파일 모두 매 실행마다 **덮어쓴다**.
+- 원문 복사본: `subagents/knowledge_search/docs/knowledge.md`
+- 목차: `subagents/knowledge_search/docs/tocs.md`
+
+두 파일 모두 매 실행마다 **덮어쓴다**. 디렉터리가 없으면 생성한다.
 
 ## 2단계 읽기 패턴
 

@@ -1,145 +1,75 @@
-L1: # 코나카드 결제 플랫폼 CORE 컴포넌트 143종의 개별 카탈로그 | 파일명: knowledge.md | 라인: 1-2107 | 참조: 3-3
-L3: > 출처: [Wiki 페이지 (pageId: 64690600)](https://konawiki.konai.com/pages/viewpage.action?pageId=64690600)
-L7: ## AMLS (AML Service) — AML 연계 서비스 | 라인: 7-20 | 참조: 3-3
-L21: ## ACS (Accumulation Calculation System) — 누적 시스템 | 라인: 21-36 | 참조: 3-3
-L37: ## AGS (Authorization Gateway Service) — 인증 게이트웨이 서비스 컴포넌트 | 라인: 37-50 | 참조: 3-3
-L51: ## APIGW (API Gateway) — 앱 요청 게이트웨이 서비스 컴포넌트 | 라인: 51-63 | 참조: 3-3
-L64: ## APS (Authentication processing server) — 코나카드의 충전단말기의 거래를 인증하기 위한 보안수단으로 Card Activation 및 충전/충전취소 거래 시 단말기에 설치된 SAM으로... | 라인: 64-75 | 참조: 3-3
-L76: ## BAS (Bconline Authentication Service) — BC온라인거래 발생 시 코나카드 별도로 내부검증이 필요하다. 이 때 사용되는 Cryptogram을 생성한다. | 라인: 76-87 | 참조: 3-3
-L88: ## VVAN (Virtual-Value Addition Network) — 가맹점/단말기 검증 | 라인: 88-111 | 참조: 3-3
-L112: ## BGS (Bank Gateway Service) — 은행 게이트웨이 서비스 컴포넌트 | 라인: 112-125 | 참조: 3-3
-L126: ## BIZB (business Batch server) — 행안부 데이터(dis) ↔ 비즈포탈에서 승인할 수 있는 데이터 | 라인: 126-140 | 참조: 3-3
-L141: ## BIZS (business portal API server) — BPP(business portal platform)의 데이터와 코나카드 코어와의 데이터 통신을 위한 API 서버(월렛서버에 떠있음). 주... | 라인: 141-153 | 참조: 3-3
-L154: ## BTS (Barcode Translator Service) — QR코드 정보 생성을 위한 서버 컴포넌트 | 라인: 154-165 | 참조: 3-3
-L166: ## CA (Certificate Authority) — 인증서발급 및 전자서명을 위한 컴포넌트로, Portal에서 상품 및 가맹점을 등록/승인할 때 사용한다. | 라인: 166-177 | 참조: 3-3
-L178: ## CAMS (card application manage system) — 체크 카드 신청 및 발급을 관리한다. | 라인: 178-189 | 참조: 3-3
-L190: ## PMS (pocket money management service) — 용돈 관리 서비스를 제공한다. | 라인: 190-201 | 참조: 3-3
-L202: ## CARDSE (CardSE) — 실물카드(CardSE)의 발급과 폐기를 관리하고, 실물카드(CardSE)와 모바일카드(HCE 카드)의 연결 또는 복제 기능을 제공한다. | 라인: 202-214 | 참조: 3-3
-L215: ## CDM (Card Delivery Management(System)) — 웰컴 카드, 정책수당카드 등 코나카드의 배송을 관리하는 컴포넌트로, App에서 회원가입 완료시 신청한 정보(혹은 EDM, CALL, BIZ... | 라인: 215-229 | 참조: 3-3
-L230: ## CLR (Clearing) — 코나카드 정산 컴포넌트 | 라인: 230-245 | 참조: 3-3
-L246: ## CRMS (Corporation Recharge Management Service) — 법인 계좌 출금이체후 카드에 충전 컴포넌트 | 라인: 246-260 | 참조: 3-3
-L261: ## CMS (Card Management System) — 카드 원장 관리 | 라인: 261-281 | 참조: 3-3
-L282: ## CRS (Customer Reward System) — 리워드 관련 정보 등록/업데이트/삭제 등의 관리와 활성화된 리워드에 따른 실시간 리워드 지급을 위한 조건 검사 기능을 제공한다. | 라인: 282-301 | 참조: 3-3
-L302: ## CS (Charge Service) — 은행계좌 및 신용 카드를 통한 충전 기능 온라인 충전상 충전을 담당한다. | 라인: 302-318 | 참조: 3-3
-L319: ## CVS (Certificate Verification Service) — 외부 인증 모듈로 현재 주민등록증 인증과 운전면허증 인증을 제공한다. 소득공제 및 충전한도 상향시 신분증 인증을 사용한다. | 라인: 319-332 | 참조: 3-3
-L333: ## DCP (Digital Card Platform) — 모바일 카드 관리 | 라인: 333-351 | 참조: 3-3
-L352: ## DDA/DDV (Display data service) — App을 위한 전시데이터 제공용 API 서비스 | 라인: 352-363 | 참조: 3-3
-L364: ## DMS (Donation Management Service) — 기부 서비스 | 라인: 364-377 | 참조: 3-3
-L378: ## EAS (External Alliance Service) — 외부 제휴 서비스를 위한 컴포넌트 | 라인: 378-395 | 참조: 3-3
-L396: ## EDM (External Data Manager) — 외부 서비스 제휴사와의 커뮤니케이션을 담당하는 컴포넌트이며 제휴사로부터 서비스에 필요한 정보를 수집하거나 제휴사에게 부가 서비스를 제공한다... | 라인: 396-410 | 참조: 3-3
-L411: ## EGS (External Gateway System) — Portal과 고객센터 등 외부 컴포넌트가 코어 API와 소통하는 Gateway 역할을 한다. | 라인: 411-424 | 참조: 3-3
-L425: ## EIM · BPP와 통합되어 사용안함 (2018.10.31) (Electronic ID Management System) — 기업에서 패용되는 사원증의 발급 및 출입권한 통제, 코나카드시스템과 연동하여 선불카드와 결합하여 사용할 수 있다. | 라인: 425-436 | 참조: 3-3
-L437: ## ELASTIC (ELASTIC Search) — 연계된 지자체의 충전, 결제, 유저정보의 빅데이터 처리 및 지자체 전송을 진행 하는 역할을 한다. | 라인: 437-448 | 참조: 3-3
-L449: ## EMS (Echo Mileage Service) — 인천 서구 환경 마일리지 서비스를 위한 컴포넌트 | 라인: 449-460 | 참조: 3-3
-L461: ## EPMS (External Portal Data Management Service) — 외부 지자체 포탈의 데이터를 연동하는 컴포넌트로 해당 데이터는 App 전시데이터로 활용된다. | 라인: 461-472 | 참조: 3-3
-L473: ## EWSM (External Web Service Manager) — 외부 웹 서비스와의 연동을 담당하는 컴포넌트이다. | 라인: 473-487 | 참조: 3-3
-L488: ## FDMS (FDS Management System) — 마스터카드 해외결제의 이상금융거래탐지(FDS)를 검증하기 위해 매입사인 KB와의 연동을 담당하는 컴포넌트이다. | 라인: 488-499 | 참조: 3-3
-L500: ## FDS (Fraud Detection System) — 이상금융거래탐지(FDS)는 3가지의 주요업무를 수행한다. | 라인: 500-517 | 참조: 3-3
-L518: ## FPS (Fee Policy System) — 과금 시스템 | 라인: 518-530 | 참조: 3-3
-L531: ## FTM (File transfer management) — 파일전송관리 시스템 | 라인: 531-540 | 참조: 3-3
-L541: ## GS (Gift Service) — 카드 선물, 쿠폰 선물 및 송금을 관장하는 컴포넌트로, 선물 및 송금 전송에 따른 상태를 관리하고 전송자와 수신자를 이어주는 역할을 한다. | 라인: 541-555 | 참조: 3-3
-L556: ## IAS (Issuer authorization system) — 카드의 최종 원장을 관리하며 라이프사이클 및 카드 잔액과 서비스에 필요한 상태 등을 관리한다. | 라인: 556-572 | 참조: 3-3
-L573: ## ICMS (Integrated Cash Management System) — CMS TCP 통신 컴포넌트 | 라인: 573-585 | 참조: 3-3
-L586: ## ITA(TMS) (Issuer Token Adapter) — 크립토그램 검증 | 라인: 586-613 | 참조: 3-3
-L614: ## KAS (Kona Address System) — 주소 검색 시스템 | 라인: 614-629 | 참조: 3-3
-L630: ## KCMW (Kona Consultant Mobile Web) — 코나카드 모집인을 통해서 회원가입을 한 회원 수 및 일정 금액 이상을 결제한 회원 정보를 모바일 환경을 통해 월별 실적 정보로 제공함으로써... | 라인: 630-641 | 참조: 3-3
-L642: ## KCPS (Kona Coupon System) — KonaCard 쿠폰 관리 시스템으로, 제휴 인프라에서 사용하는 외부쿠폰과 내부 인프라에서 사용하는 내부쿠폰을 관리한다. | 라인: 642-657 | 참조: 3-3
-L658: ## KCS (Kona Consultant Service) — 코나카드 고객 유치를 위한 회원 가입을 유도하는 모집인 관련 컴포넌트로 모집인 관리 및 모집인 실적을 제공한다. | 라인: 658-671 | 참조: 3-3
-L672: ## KFDS (Kona Fraud Detection System) — A-safe를 대신하여 신규로 추가되는 이상금융거래탐지(FDS) 룰을 관리하며 이상거래를 탐지하여 정보를 제공하는 컴포넌트이다. | 라인: 672-683 | 참조: 3-3
-L684: ## KMC (Konacard Multi-CRM) — 고객으로부터 오는 각종 서비스 관련 문의에 대해 신속히 대응하기 위한 고객센터 웹 서버이다. 고객, 가맹점, 비회원배송 등에 대해 조회가 ... | 라인: 684-696 | 참조: 3-3
-L697: ## KMS (Key Management System) — HSM 등의 암호화 처리 장비를 이용하여 Key를 안전하게 관리하고 사용하기 위한 편의 기능들을 제공한다. | 라인: 697-708 | 참조: 3-3
-L709: ## KNOTIFY (Knotify) — 코나카드 서비스의 장애, 통보, 거래 내역 등 알림을 담당한다 | 라인: 709-730 | 참조: 3-3
-L731: ## Knotify-DMZ (Knotify DMZ) — 푸시 서비스 공급자 컴포넌트간의 라우팅하는 처리로, 컴포넌트의 주요 역할은 knotify가 보낸 푸시를 전달하는 것이다. | 라인: 731-748 | 참조: 3-3
-L749: ## KOD_ETN (Kona Operation Desk  -External) — 선불 결제 시스템 운영에 관한 모든 정보(시스템 정책 및 시스템 운영 정보, 파트너 및 상품의 정보)들을 설정하고 관리 할 수 있도록 운영... | 라인: 749-761 | 참조: 3-3
-L762: ## KOD_ITN (Kona Operation Desk  -Internal) — 선불 결제 시스템 운영에 관한 모든 정보들을 제공한다. Core 컴포넌트 & Wallet App의 요청에 따라 상품 정보, 가맹점 및 기타... | 라인: 762-773 | 참조: 3-3
-L774: ## KPF (Kona Private Funding) — 계 서비스 | 라인: 774-791 | 참조: 3-3
-L792: ## KPS (Kona Point System) — 포인트(캐시백)을 관리한다. 정책에 기반한 포인트 적립, 사용, 지급, 차감, 포인트 내역 조회를 제공한다. | 라인: 792-809 | 참조: 3-3
-L810: ## KSTS (Kona Stamp System) — 스탬프 시스템 | 라인: 810-827 | 참조: 3-3
-L828: ## KDS (Kona Delivery Service) — 외부 배달 대행 서비스 | 라인: 828-843 | 참조: 3-3
-L844: ## LOP (Local Order Platform) — 배달 서비스 | 라인: 844-861 | 참조: 3-3
-L862: ## LOP_EXT (Local Order Platform - Externel) — 배달 서비스 | 라인: 862-872 | 참조: 3-3
-L873: ## LOP_DTS (Local Order Platform - Data Transfer Service) — 배달 서비스 | 라인: 873-883 | 참조: 3-3
-L884: ## MAP (Mobile Application Platform) — 회원 | 라인: 884-919 | 참조: 3-3
-L920: ## MIS (Mobility Integration Service) — 모빌리티 연동 서비스 | 라인: 920-930 | 참조: 3-3
-L931: ## OASG (Open API Service Gateway) — Gateway for OpenApi | 라인: 931-942 | 참조: 3-3
-L943: ## OASR (Open API Service Route & Data ReMapping Service) — Open API 서비스 컴포넌트 | 라인: 943-962 | 참조: 3-3
-L963: ## PCS (Prepaid Card Service) — Wallet App향 Service Layer로 IAS, DCP, PCS, CS, CMS, CDM, KOD_ITN 등 여러 코어 컴포넌트들... | 라인: 963-974 | 참조: 3-3
-L975: ## PCSI (Prepaid Card Service Inquiry) — ** 월렛에서 필요한 정보를 수집하여 제공하는 서비스 컴포넌트 | 라인: 975-998 | 참조: 3-3
-L999: ## PP (Payment Processor) — 코나카드에서 발생하는 충전/환불/잔액 이동/지불 등 카드와 관련 된 모든 거래의 흐름을 제어한다. | 라인: 999-1018 | 참조: 3-3
-L1019: ## PRM (Personal information access record management system) — 개인정보 접근기록 관리 시스템 | 라인: 1019-1031 | 참조: 3-3
-L1032: ## QRS (Query Running Service) — 쿼리 실행 서비스, 복잡한 쿼리식을 요하는 서비스 제공 시 빠르게 서비스를 제공할 수 있도록 고안된 컴포넌트 | 라인: 1032-1050 | 참조: 3-3
-L1051: ## RPG (Remote Payment Gateway) — 코나플랫폼의 온라인PG 역할로, 모바일과 웹사이트의 온라인 결제 기능을 제공한다. 따라서 외부 가맹점에서의 온라인 결제를 관리한다. | 라인: 1051-1064 | 참조: 3-3
-L1065: ## RPG-KM (RPG key management) — 외부 가맹점과 RPG의 요청에 의해 온라인 거래에 필요한 key를 생성하고 그 주기를 관리한다. | 라인: 1065-1076 | 참조: 3-3
-L1077: ## RS (Refund Service) — 환불 처리기능을 제공한다. | 라인: 1077-1091 | 참조: 3-3
-L1092: ## SAS (Statistics Analysis System) — 통계 컴포넌트 | 라인: 1092-1107 | 참조: 3-3
-L1108: ## TCS (Transaction Compare System) — VAN과의 대사 파일을 송신 및 수신한다. | 라인: 1108-1124 | 참조: 3-3
-L1125: ## TSP (Token Service Provider) — 카드 번호 토큰화 | 라인: 1125-1155 | 참조: 3-3
-L1156: ## GDIS (Gyeonggi-do Disaster Service) — 경기도 재난지원금 컴포넌트 | 라인: 1156-1165 | 참조: 3-3
-L1166: ## MAS (Mobility Application Service) — 택시 컴포넌트 | 라인: 1166-1175 | 참조: 3-3
-L1176: ## MAS-S (MAS Service) — 모빌리티 실시간 관제 | 라인: 1176-1186 | 참조: 3-3
-L1187: ## MAS-B (MAS Batch) — 모빌리티 통계 | 라인: 1187-1199 | 참조: 3-3
-L1200: ## MAS-J (MAS Job) — 모빌리티 배치 | 라인: 1200-1210 | 참조: 3-3
-L1211: ## ETH (Event To Hadoop) — 택시 이벤트 투 하둡 저장 컴포넌트 | 라인: 1211-1220 | 참조: 3-3
-L1221: ## RDS (Realtime Dispatcher Service) — 택시 실시간 위치 트레킹 및 요청 전송 컴포넌트 | 라인: 1221-1230 | 참조: 3-3
-L1231: ## ESP (Elastic Search Platform) — 엘라스틱서치 - 택시정보 관리 컴포넌트 | 라인: 1231-1240 | 참조: 3-3
-L1241: ## BUSAN (Busan Core Service) — 부산 동백전 정보 이관 연계 컴포넌트 | 라인: 1241-1255 | 참조: 3-3
-L1256: ## ETMS (Entry Ticket Management System) — 응모권 발급 | 라인: 1256-1273 | 참조: 3-3
-L1274: ## MYDS (-) — 마이데이터 정보제공자 컴포넌트 | 라인: 1274-1283 | 참조: 3-3
-L1284: ## MYDG (-) — 마이데이터 정보제공 서비스를 위한 Gateway 컴포넌트 | 라인: 1284-1293 | 참조: 3-3
-L1294: ## PIS (-) — 선불카드조회 서비스 컴포넌트 - 신규 | 라인: 1294-1318 | 참조: 3-3
-L1319: ## TSS (Transfer(Take-over) Support Service) — 이관 지원 서비스 | 라인: 1319-1338 | 참조: 3-3
-L1339: ## UIS (User Identification Service) — 코나카드 사용자의 신분증 진위 확인을 검증한다. | 라인: 1339-1350 | 참조: 3-3
-L1351: ## OASL (Open API Service Layer) — No HCE 기반 오픈 API 서비스 레이어 | 라인: 1351-1366 | 참조: 3-3
-L1367: ## LSS (Luckyloco Support Service) — 코나카드 플랫폼과 럭키로코 서비스 연계 지원 | 라인: 1367-1378 | 참조: 3-3
-L1379: ## YBAT (KonaYs Batch Service) — KonaYs Batch Service | 라인: 1379-1390 | 참조: 3-3
-L1391: ## YSTORE (KonaYs Store Service) — KonaYs Store Service | 라인: 1391-1403 | 참조: 3-3
-L1404: ## RFS (Request For Subsidy) — 보조금 24 (내게 맞는 정책수당 찾기 서비스) | 라인: 1404-1415 | 참조: 3-3
-L1416: ## SPS (Secure Phonenumber Service) — 안심번호 제공 서비스 | 라인: 1416-1427 | 참조: 3-3
-L1428: ## TTS (Taxi Transaction System) — 택시 거래 시스템 | 라인: 1428-1445 | 참조: 3-3
-L1446: ## KBC_B (KONA business card Batch) — 복지카드 배치서비스 | 라인: 1446-1457 | 참조: 3-3
-L1458: ## LOP_RDS (LOP Realtime Dispatcher Service) — LOP 실시간 폴링 서비스 | 라인: 1458-1470 | 참조: 3-3
-L1471: ## CSG (Call Service Gateway) — 지역전화콜 연동 서비스 | 라인: 1471-1484 | 참조: 3-3
-L1485: ## CPG (Credit Payment Gateway) — 신용카드 결제 게이트웨이 | 라인: 1485-1500 | 참조: 3-3
-L1501: ## EZPS (Easy Payment Service) — 신용카드 간편 결제 관리 서비스 | 라인: 1501-1512 | 참조: 3-3
-L1513: ## ETM (Event To Mongo) — 택시 이벤트 투 MongoDB 저장 컴포넌트 | 라인: 1513-1522 | 참조: 3-3
-L1523: ## IMCS (IMCS) — 교통정산 컴포넌트 (Integrated Mobility Clearing and Settlement) | 라인: 1523-1541 | 참조: 3-3
-L1542: ## DAPM (Display Advertisment Platform Messagebroker) — 광고 플랫폼 메세징 컴포넌트 | 라인: 1542-1557 | 참조: 3-3
-L1558: ## DAPC (Display Advertisment Platform Core) — 광고 플랫폼 코어 컴포넌트 | 라인: 1558-1571 | 참조: 3-3
-L1572: ## DAPA (Display Advertisment Platform API) — 광고 플랫폼 API 컴포넌트 | 라인: 1572-1585 | 참조: 3-3
-L1586: ## MONIS (Monitoring Interface Service) — 관제 / 택시 시스템 간의 연동 컴포넌트 | 라인: 1586-1598 | 참조: 3-3
-L1599: ## CBSS (Customer Benefit segmentation statics) — 고객 혜택 집계 관리 컴포넌트 | 라인: 1599-1612 | 참조: 3-3
-L1613: ## CAS (Card Authentification Service) — 카드 인증 서비스 | 라인: 1613-1626 | 참조: 3-3
-L1627: ## PLD (Personal Identifiable Information Leak Detection) — 개인 정보 유출 탐지 컴포넌트 | 라인: 1627-1640 | 참조: 3-3
-L1641: ## MDPS (Mobility Data Purge Service) — 모빌리티 데이터 삭제 서비스 | 라인: 1641-1654 | 참조: 3-3
-L1655: ## ORS (Overseas Remittance Service) — 해외 송금 서비스 | 라인: 1655-1666 | 참조: 3-3
-L1667: ## VCC (Visible Chatbot Core) — 보이는 챗봇 코어 서비스 | 라인: 1667-1682 | 참조: 3-3
-L1683: ## AICC (AI Contact Center) — AI 고객센터 | 라인: 1683-1698 | 참조: 3-3
-L1699: ## VAS (Voice Assistant Service) — 음성 비서 서비스 | 라인: 1699-1712 | 참조: 3-3
-L1713: ## AMM (AppMeter Manager) — 앱미터 매니저 | 라인: 1713-1726 | 참조: 3-3
-L1727: ## MSMA (Mobility Supply-chain Management Api Service) — 모빌리티 자산 관리 시스템 | 라인: 1727-1739 | 참조: 3-3
-L1740: ## MSMW (Mobility Supply-chain Management Web) — 모빌리티 자산 관리 시스템 포탈 | 라인: 1740-1752 | 참조: 3-3
-L1753: ## MOSP (Mobility OTA Service Portal) — 모빌리티 OTA 서비스 포탈 | 라인: 1753-1765 | 참조: 3-3
-L1766: ## VCF (Visible Chatbot Front) — 보이는 챗봇 | 라인: 1766-1779 | 참조: 3-3
-L1780: ## FXS (Foreign eXchange Service) — 외환 관리 서비스 | 라인: 1780-1799 | 참조: 3-3
-L1800: ## LBMS (Location-Base Merchant Service) — 위치 기반 가맹점 서비스 | 라인: 1800-1813 | 참조: 3-3
-L1814: ## MASI (Mobility Application Service Interface) — 모빌리티 택시 데이터 조회 서비스 | 라인: 1814-1827 | 참조: 3-3
-L1828: ## COPS (Co-Payment Service) — 모아서 결제 서비스 | 라인: 1828-1845 | 참조: 3-3
-L1846: ## KS-BATCH (KS data batch server) — 고객센터 모니터링을 위한 배치 | 라인: 1846-1861 | 참조: 3-3
-L1862: ## DBMT (Database Monitoring) — 데이터베이스 모니터링 컴포넌트 (API 서버) | 라인: 1862-1875 | 참조: 3-3
-L1876: ## VAM (Virtual Account Management) — 가상 계좌 매핑 및 관리 서비스 | 라인: 1876-1887 | 참조: 3-3
-L1888: ## RDMT (Rundeck Monitoring) — 런덱 모니터링 컴포넌트 (API 서버) | 라인: 1888-1900 | 참조: 3-3
-L1901: ## AICV (AI Contract Validation) — 가맹점 계약 검증 컴포넌트 (API 서버) | 라인: 1901-1913 | 참조: 3-3
-L1914: ## SCC (Spring Cloud Config) — OpenAPI 관련 컴퍼넌트 설정 정보 통합 관리 컴퍼넌트 | 라인: 1914-1929 | 참조: 3-3
-L1930: ## SDTS (Secure Document Transfer System) — 솔리데오 PINO 전자문서지갑 서비스 제공 | 라인: 1930-1941 | 참조: 3-3
-L1942: ## CLR_KT (Clearing Kotlin) — 코나카드 정산 컴포넌트는 거래 데이터를 기반으로 수수료와 대금을 계산하고, 지급 데이터를 생성합니다. Spring Boot 3.2.3, J... | 라인: 1942-1953 | 참조: 3-3
-L1954: ## PRS (Personalized Recommendation System) — 개인 맞춤형 추천 시스템 | 라인: 1954-1967 | 참조: 3-3
-L1968: ## OPBO (Open Partner Back-Office) — 개방형 플랫폼 제휴 파트너 API 사용량 대시보드/통계 | 라인: 1968-1981 | 참조: 3-3
-L1982: ## KTC (Kona Traffic Controller) — 트레이서 대기열 솔루션을 내재화한 프로젝트 | 라인: 1982-1995 | 참조: 3-3
-L1996: ## KTCA (Kona Traffic Controller API Server) — 트레이서 대기열 솔루션을 내재화한 프로젝트의 API 서버 | 라인: 1996-2009 | 참조: 3-3
-L2010: ## STT (SpeechToText) — 음성파일을 텍스트로 변환기능 제공 | 라인: 2010-2021 | 참조: 3-3
-L2022: ## AFS (Annual Fee Service) — 연회비 서비스. | 라인: 2022-2037 | 참조: 3-3
-L2038: ## CIMS (Card Inventory Management Service) — 카드 재고 관리 서비 | 라인: 2038-2051 | 참조: 3-3
-L2052: ## IIS (Instant Issue Service) — 즉시 발급 서비스 | 라인: 2052-2063 | 참조: 3-3
-L2064: ## ACC (Agent Chatbot Core) — 지역화폐 챗봇 에이전트 - 코어 서버. | 라인: 2064-2079 | 참조: 3-3
-L2080: ## ACW (Agent Chatbot Web) — 지역화폐 챗봇 에이전트 - 웹 서버. | 라인: 2080-2094 | 참조: 3-3
-L2095: ## MLS (Mileage service) — 마일리지 서비스 | 라인: 2095-2107 | 참조: 3-3
+L1: # 제안서 약어표 | 파일명: knowledge.md | 라인: 1-185 | 참조: 3
+L3: > 출처: [Wiki 페이지 (pageId: 376804169)](https://konawiki.konai.com/pages/viewpage.action?pageId=376804169)
+L5: ## ADAS (Advanced Driver Assistance Systems) — 운전자의 운전에 도움을 주는 시스템 | 라인: 5-5 | 참조: 3
+L7: ## AMEX (American Express) — 미국 뉴욕 시에 본사를 두고 신용카드, 여행자 수표 등 금융업의 대부분을 다루는 회사 | 라인: 7-7 | 참조: 3
+L9: ## AML (Anti-Money Laundering System) — 불법자금의 세탁을 적발 및 예방하기 위한 법적 제도적 장치로서 사법제도, 금융제도, 국제협력을… | 라인: 9-11 | 참조: 3
+L13: ## AMS (Application Management System) — 카드 내 어플리케이션 등록(발급), 변경, 조회, 폐기 등 라이프사이클을 관리하는 시스템 | 라인: 13-13 | 참조: 3
+L15: ## API (Application Programming Interface) — 운영체제와 응용프로그램 사이의 통신에 사용되는 언어나 메시지 형식 | 라인: 15-15 | 참조: 3
+L17: ## CDD (Customer Due Diligence) — 고객확인의무 | 라인: 17-17 | 참조: 3
+L19: ## CMS (Card Management System) — 카드 발급, 중지, 업데이트, 폐기 등 카드 관리 시스템 | 라인: 19-19 | 참조: 3
+L21: ## CPM (Customer Presented Mode) — 소비자가 QR코드를 생성하며 가맹점주가 스캔하는 방식 | 라인: 21-21 | 참조: 3
+L23: ## CQM (Card Quality Management) — 마스터카드 제품 품질 인증 | 라인: 23-23 | 참조: 3
+L25: ## CUP (China Union Pay) — 중국의 신용카드 브랜드 회사 | 라인: 25-25 | 참조: 3
+L27: ## DCP (Digital Card Platform) — 모바일 앱에 발급되는 HCE 디지털카드 발급 및 라이프사이클 관리하는 시스템 | 라인: 27-27 | 참조: 3
+L29: ## DDOS (Denial Of Service Attack) — 해킹 방식의 하나로서 여러 대의 공격자를 분산 배치하여 동시에 '서비스 거부 공격(Denial… | 라인: 29-31 | 참조: 3
+L33: ## DID (Decentralized Identity) — 분산 신원 증명((정부나 은행 등 인증된 발급 기관에서 개인에 대해 검증된 정보를 수집하고 이를… | 라인: 33-35 | 참조: 3
+L37: ## DMSR (Device & Mobile Subscription Registrar) — 휴대폰 가입자의 정보 및 휴대폰 상태를 관리 | 라인: 37-37 | 참조: 3
+L39: ## DR (Disaster Recovery) — 재해복구, 천재지변, 파업, 전산사고 등으로 인해 전산센터가 마비될 경우를 대비한 주센터와 동일한… | 라인: 39-41 | 참조: 3
+L43: ## DTG (Digital Tachograph) — 차량의 운행 정보를 기록해주는 장비 | 라인: 43-43 | 참조: 3
+L45: ## E2E (Exchange-to-Exchange) — 인터넷에서 기업 간 상품과 서비스를 매개하는 기업들의 웹 사이트 간에 행해지는 정보나 거래의 교환 | 라인: 45-45 | 참조: 3
+L47: ## EAM (EAM) — 권한에 따라 차등적으로 자원에 접근하게 해 주는 보안성을 제공하는 솔루션 | 라인: 47-47 | 참조: 3
+L49: ## EDD (Enhanced Due Diligence) — 강화된 고객확인 | 라인: 49-49 | 참조: 3
+L51: ## EMV (Euro pay, Mastercard, Visa) — 비자카드/마스터카드/유로페이 3사가 규정한 신용카드 결제 표준 | 라인: 51-51 | 참조: 3
+L53: ## ESG (Environment Social Governance) — 기업의 비재무적 요소인… | 라인: 53-55 | 참조: 3
+L57: ## FAQ (Frequently Asked Question) — 이용자가 자주 하는 질문에 대한 대답을 미리 정리하여 게시판에 올려놓은 파일형 자료 | 라인: 57-57 | 참조: 3
+L59: ## FDS (Fraud Detection System) — 결제자의 다양한 정보를 수집해 패턴을 만든 후, 패턴과 다른 이상 결제를 잡아내고 결제 경로를… | 라인: 59-61 | 참조: 3
+L63: ## FIDO (Fast Identity Online) — 온라인 환경에서 ID,비밀번호 없이 생체인식 기술을 활용하여 보다 편리하고 안전하게 개인 인증을… | 라인: 63-65 | 참조: 3
+L67: ## GP (Global Platform) — 보안 칩 기술에 대한 사양(표준)을 정의 하고 게시하는 비영리 조직 | 라인: 67-67 | 참조: 3
+L69: ## GPS (Global Positioning System) — 위성에서 보내는 신호를 수신해 사용자의 현재 위치를 계산하는 위성항법시스템 | 라인: 69-69 | 참조: 3
+L71: ## GIS (Geographic Information System) — 지역에서 수집한 각종 지리 정보를 수치화하여 컴퓨터에 입력·정보·처리하고, 이를 사용자의 요구에… | 라인: 71-73 | 참조: 3
+L75: ## HCE (Host Card Emulation) — 휴대폰을 카드처럼 동작시키기 위한 기술 | 라인: 75-75 | 참조: 3
+L77: ## HSM (Hardware Security Module) — 금융거래 또는 금융카드 발급에 사용되는 보안 키값을 안전하에 보관하는 물리적 매체 | 라인: 77-77 | 참조: 3
+L79: ## IC (Integrated Circuit) — 집적 회로 | 라인: 79-79 | 참조: 3
+L81: ## IDC (Internet Data Center) — 개인 또는 기업고객에게 전산/네트워크 설비를 임대하거나 고객의 설비를 유치하여 유지·보수 등의… | 라인: 81-83 | 참조: 3
+L85: ## IoT (Internet of Things) — 사물간 인터넷 통신 | 라인: 85-85 | 참조: 3
+L87: ## ISMS (Information Security Management System) — 정보 보안 경영시스템 | 라인: 87-87 | 참조: 3
+L89: ## ISO (International Organization for Standardization) — 국제 표준화 기구 | 라인: 89-89 | 참조: 3
+L91: ## ITA (Issuer Token Adapter) — 실물/디지털카드에서 생성된 크립토그램 검증, 거래 인증 등 부정 사용 방지 기능이 있는 시스템 | 라인: 91-91 | 참조: 3
+L93: ## JCB (Japan Credit Bureau) — 일본의 신용카드사이자 국제 카드 브랜드인 JCB를 관리하고 있는 회사 | 라인: 93-93 | 참조: 3
+L95: ## KMS (Key Management System) — 키 생성, 폐기 등 관리 시스템 | 라인: 95-95 | 참조: 3
+L97: ## KS (Korean Industrial Standards) — 한국산업표준수준 이상의 제품을 안정적, 지속적으로 생산할 수 있는 체제를 갖춘 기업에 대하여 그… | 라인: 97-99 | 참조: 3
+L101: ## KSQI (Korean Service Quality Index) — 한국산업의 서비스품질에 대한 고객들의 체감 정도를 나타내는 지수 | 라인: 101-101 | 참조: 3
+L103: ## LDE (Local Data Encrypt) — 모바일 기기 내 데이터 보안 영역 | 라인: 103-103 | 참조: 3
+L105: ## MMS (multi-media message service) — 문자와 숫자로만 이뤄진 기존 문자메시지와 달리 동영상 사진 멜로디 등을 첨부할 수 있어 마치 유선… | 라인: 105-107 | 참조: 3
+L109: ## MPM (Merchant Presented Mode) — 가맹점의 QR코드를 소지가 휴대폰으로 읽어내는 방식 | 라인: 109-109 | 참조: 3
+L111: ## MSA (Micro Service Architecture) — 시스템을 여러 개의 독립적인 서비스로 나눠서, 이 서비스를 조합하여 기능을 제공하는 아키텍쳐… | 라인: 111-113 | 참조: 3
+L115: ## MST (Magnetic Secure Transmission) — 마그네틱 신용카드 정보를 무선으로 전송시켜 결제하는 방식 | 라인: 115-115 | 참조: 3
+L117: ## NFC (Near Field Communication) — 13.56MHz 대역의 가까운 거리의 무선 통신을 하기 위한 표준 기술 | 라인: 117-117 | 참조: 3
+L119: ## NFT (Non-fungible token) — 블록체인 기술을 이용해서 디지털 자산의 소유주를 증명하는 가상의 토큰 | 라인: 119-119 | 참조: 3
+L121: ## OBD (On Board Diagnostics) — 자동차의 전기/전자적인 작동 상태를 확인하고 제어하기 위한 진단 규격 | 라인: 121-121 | 참조: 3
+L123: ## ODS (Object Directory Service) — 전자태그(RFID tag)에 삽입된 RFID 코드와 관련된 물품정보가 있는 서버의 위치… | 라인: 123-125 | 참조: 3
+L127: ## OS (Operating System) — 운영 체제 | 라인: 127-127 | 참조: 3
+L129: ## OTA (Over The Air) — 어플리케이션, 설정 구성, 암호화 키 업데이트 등을 휴대폰 통신 망을 통해 배포 하는 것 | 라인: 129-129 | 참조: 3
+L131: ## OTP (One Time Password) — 주로 높은 수준의 보안을 유지하며 사용자를 인증해야 할 필요가 있을 때 사용되는 일회성 비밀번호 | 라인: 131-131 | 참조: 3
+L133: ## PCI-DSS (Payment Card Industry Data Security Standard) — 신용카드 회원의 카드정보 및 거래정보를 안전하게 관리하기 위해서 신용카드 결제 전 과정에 걸쳐… | 라인: 133-135 | 참조: 3
+L137: ## PKI (Public Key Infrastructure) — 공개키 암호화 방식을 이용하는 기술 | 라인: 137-137 | 참조: 3
+L139: ## PP (Payment Processor) — 외부 결제망 시스템과 연결되어 내부 거래 메시지(ISO8583)로 변경 및 중계 처리 하는 시스템 | 라인: 139-139 | 참조: 3
+L141: ## QR (Quick Response code) — 컴퓨터가 만든 흑백 격자무늬 패턴 코드로, 정보를 나타내는 매트릭스 형식의 이차원 코드 | 라인: 141-141 | 참조: 3
+L143: ## SAS (Security Accreditation Scheme) — GSMA에서 정의한 SIM 제조 및 발급 보안 인증 제도 | 라인: 143-143 | 참조: 3
+L145: ## SCMS (Smart Card Management System) — 스마트카드 발급 시스템 | 라인: 145-145 | 참조: 3
+L147: ## SDK (Software Development Kit) — 소프트웨어를 개발하는 도구 | 라인: 147-147 | 참조: 3
+L149: ## SEI (Secure Element Issuer) — 보안 매체 운영체제 및 H/W 정보, 어플리케이션 등을 관리 | 라인: 149-149 | 참조: 3
+L151: ## SIEM (Security Information & Event Management) — 다양한 보안 장비와 서버, 네트워크 장비 등으로부터 보안 로그와 이벤트 정보를 수집한 후 정보들… | 라인: 151-153 | 참조: 3
+L155: ## SMS (Short message service) — 단문메세지 | 라인: 155-155 | 참조: 3
+L157: ## SSO (Single Sign On) — 가장 기본적인 인증 시스템으로, '모든 인증을 하나의 시스템에서'라는 목적하에 개발된 것 | 라인: 157-157 | 참조: 3
+L159: ## TPS (Transaction Processing System) — 상품의 주문,발송 등 거래와 관련된 데이터가 발생할 때마다 단말기에서 발생된 데이터를 수신… | 라인: 159-161 | 참조: 3
+L163: ## TSM (Trust Service Management) — 무선 통신을 이용한 스마트카드 발급 시스템 | 라인: 163-163 | 참조: 3
+L165: ## TSP (Token Service Provider) — 카드번호에 대응하는 토큰을 생성 및 토큰의 라이프사이클을 관리하는 시스템 | 라인: 165-165 | 참조: 3
+L167: ## VAN (Value Added Network) — 카드사와 가맹점 간의 네트워크 망을 구축 및 카드 사용 승인 중계, 카드 전표 매입, 청구 대행… | 라인: 167-169 | 참조: 3
+L171: ## VDI (Virtua| Desktop Infrastructure) — 물리적으로 존재하진 않지만 실제 작동하는 컴퓨터 안에서 작동하는 또 하나의 컴퓨터를 만들 수 있는… | 라인: 171-173 | 참조: 3
+L175: ## VISA (Visa Inc.) — 신용카드의 브랜드로 국제 신용카드 브랜드들 가운데 대표 주자 | 라인: 175-175 | 참조: 3
+L177: ## VOC (Voice Of Customer) — 서비스 사용 중 발생하는 고객의 의견 또는 불만 사항 | 라인: 177-177 | 참조: 3
+L179: ## VPN (Virtua| Private Network) — 방화벽, 침입 탐지 시스템과 함께 현재 사용되는 가장 일반적인 보안 솔루션 중 하나 임 | 라인: 179-179 | 참조: 3
+L181: ## WAF (Web Application Firewal) — 파이썬 언어로 작성된 소프트웨어 빌드 시스템 웹 애플리케이션 방화벽 | 라인: 181-181 | 참조: 3
+L183: ## UI (User Interface) — 사용자 인터페이스 | 라인: 183-183 | 참조: 3
+L185: ## UX (User Experience) — 사용자 경험 | 라인: 185-185 | 참조: 3

@@ -1,8 +1,7 @@
 """환경 설치 확인용 Hello World"""
 
-from deepagents import create_deep_agent
+from langchain_google_genai import ChatGoogleGenerativeAI  # noqa: F401
 
-print("deepagents 설치 확인 OK!")
-print(f"deepagents version: {__import__('deepagents').__version__}")
+print("설치 확인 OK!")
 print()
-print("다음 단계: .env 파일에 API 키를 설정한 후 'uv run main.py'를 실행하세요.")
+print("다음 단계: .env 파일에 API 키를 설정하세요.")

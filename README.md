@@ -1,10 +1,26 @@
 # Phantom
 
-DeepAgent + Claude Code를 활용한 에이전트 구축 방법을 함께 살펴봅니다.
+🔗 https://github.com/qtz3004/phantom
 
-## 사전 준비
+Claude Code, DeepAgent, CopilotKit을 활용한 에이전트 구축 데모.
 
-### uv 설치
+---
+
+## 1. Git 설치
+
+**Mac:**
+```bash
+xcode-select --install
+```
+
+**Windows (PowerShell):**
+```powershell
+winget install --id Git.Git -e
+```
+
+확인: `git --version`
+
+## 2. uv 설치
 
 **Mac / Linux:**
 ```bash
@@ -16,15 +32,9 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-> 설치 후 터미널을 재시작하세요.
+확인: `uv --version`
 
-## 시작하기
-
-**아래 모든 단계가 정상 동작해야 합니다. 시작 전에 반드시 확인해주세요.**
-
-> `uv`가 `.python-version` 파일을 보고 Python 3.12를 자동 설치합니다. 별도로 Python을 설치할 필요가 없습니다.
-
-### 1. 프로젝트 클론 및 의존성 설치
+## 3. 프로젝트 내려받기
 
 ```bash
 git clone https://github.com/qtz3004/phantom.git
@@ -32,58 +42,39 @@ cd phantom
 uv sync
 ```
 
-### 2. 환경변수 설정
-
-```bash
-cp .env.example .env
-# Windows: copy .env.example .env
-```
-
-`.env` 파일에 API 키와 PEM 인증서 경로를 입력하세요:
-
-```
-GOOGLE_API_KEY=AIza...
-TAVILY_API_KEY=tvly-...
-SSL_CERT_FILE=/path/to/your-proxy.pem
-```
-
-### 3. 설치 확인 (API 키 없이도 동작)
+## 4. 설치 확인
 
 ```bash
 uv run hello.py
 ```
 
-```
-deepagents 설치 확인 OK!
-deepagents version: 0.4.12
+## 5. API 키 설정
 
-다음 단계: .env 파일에 API 키를 설정한 후 'uv run main.py'를 실행하세요.
+```bash
+cp .env.example .env
 ```
 
-### 4. Google API 키 확인
+`.env`를 열어 키를 입력하세요:
+```
+GOOGLE_API_KEY=...
+```
+
+> 📌 API 키 / 사내망 PEM 인증서: https://konawiki.konai.com/pages/viewpage.action?pageId=424296262
+>
+> 사내망에서 SSL 에러 시 `.env`에 `SSL_CERT_FILE=/path/to/your-proxy.pem` 추가
+
+## 6. Gemini 호출
 
 ```bash
 uv run main.py
 ```
 
-```
-안녕하세요! 무엇을 도와드릴까요? 😊   ← 예시이며, 응답 내용은 매번 달라집니다
-```
+> LLM은 실시간 정보에 접근할 수 없어 "시간을 모른다"는 답이 자연스럽습니다. 다음 단계에서 Claude Code로 이 한계를 보완합니다.
 
-> Google Gemini의 텍스트 응답이 출력되면 성공입니다.
-
-### 5. Claude Code 실행
+## 7. Claude Code 실행
 
 ```bash
 claude
 ```
 
-```
- ▐▛███▜▌   Claude Code v2.1.89
-▝▜█████▛▘  Opus 4.6 · Claude Team
-  ▘▘ ▝▝    ~/Workspace/07.lab/phantom
-
-❯
-```
-
-> 위와 같이 Claude Code 배너가 출력되고 프롬프트(`❯`)가 나타나면 성공입니다.
+> 사내망에서 SSL 에러 시 쉘 프로파일에 `export NODE_EXTRA_CA_CERTS="/path/to/your-proxy.pem"` 추가 후 터미널 재시작 (Node.js용, Python용 `SSL_CERT_FILE`과 별개).

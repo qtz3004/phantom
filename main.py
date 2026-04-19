@@ -13,7 +13,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 def main():
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
-    response = llm.invoke("안녕")
+    response = llm.invoke("지금 몇시야")
     print(response.content)
 
 

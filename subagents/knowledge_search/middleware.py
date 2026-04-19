@@ -84,7 +84,7 @@ def grab_section(select_expression: str) -> str:
     여러 섹션은 줄바꿈으로 구분합니다.
 
     Args:
-        select_expression: "422767515.md | 라인: 6-17 | 참조: 3-4" 형식의 문자열
+        select_expression: "sample.md | 라인: 6-17 | 참조: 3-4" 형식의 문자열
     """
     pattern = r"(\S+\.md)\s*\|\s*라인:\s*(\d+)\s*-\s*(\d+)\s*\|\s*참조:\s*(\d+)\s*-\s*(\d+)"
     matches = list(re.finditer(pattern, select_expression, re.DOTALL))
